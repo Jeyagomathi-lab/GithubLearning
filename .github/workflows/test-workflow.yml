@@ -1,0 +1,19 @@
+name: test workflow
+on:
+  push:
+    branches:
+      - dev
+      - main
+jobs:
+  test_job:
+    runs-on: ubuntu-laters
+    steps:
+      - name: checkout
+        uses: actions/checkout@v4
+      - name: test command
+        run: |
+          echo "Welcome this is created by ${{ github.actor }}"
+          echo "Running on OS - ${{ runner.os }}"
+          echo "Branch is ${{ github.ref }} and repository ${{ github.repository }}"
+      - name: list files
+        run: ls
